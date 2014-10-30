@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html lang="en">
+	<head>
+    <link rel="stylesheet" type="text/css" href="/css/book.css">
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="js/index.js" type="application/javascript" ></script>
+    <script src="/bower_components/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/bower_components/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/css/bootstrap.min.css">
+    </head>
+	<body>
+        <header>
+        <img src="images/logo.png" id="logo" style="width:82px;height:82px"/>
+        <h1 class="padding">Angular Book</h1>
+        <nav>
+            <a href="#" id="menu-icon"></a>
+              <form id="section" name="login" onsubmit="return(validate());">
+                <input class="textbox" type="text" name="username" id="username" placeholder="username" maxlength="8" required>
+	            <input class="textbox" type="password" name="password" id="password" placeholder="password"
+                       pattern=".{6,}" required title="6 characters minimum"/>
+                <input class="submit" type="submit" name="button" id="button" value="Submit" />
+            </form>
+            </nav>
+        </header>
+        <img src="images/featured.jpg" alt="Mountain View" style="width:1335px;height:615px"/>
+        <div id="footer">
+            <footer>
+                <div class="footer-text" id="footertext">Talent Improving exercise, OFS</div>
+            </footer>
+        </div>
+	</body>
+</html>
