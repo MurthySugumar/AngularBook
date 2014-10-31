@@ -1,33 +1,72 @@
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<html lang="en">
-	<head>
-    <link rel="stylesheet" type="text/css" href="/css/book.css">
+<html lang="en" ng-app="indexApp">
+
+<head>
     <script src="/bower_components/angular/angular.js"></script>
-    <script src="js/index.js" type="application/javascript" ></script>
+    <script src="js/index.js" type="application/javascript"></script>
     <script src="/bower_components/bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/bower_components/bootstrap/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/bower_components/bootstrap/css/bootstrap.min.css">
-    </head>
-	<body>
-        <header>
-        <img src="images/logo.png" id="logo" style="width:82px;height:82px"/>
+    <link rel="stylesheet" href="/bower_components/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/book.css">
+    <script data-require="jquery@1.9.0" data-semver="1.9.0" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+    <link data-require="bootstrap@3.0.0" data-semver="3.0.0" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <script data-require="bootstrap@3.0.0" data-semver="3.0.0" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <img class="col-lg-2 col-sm-3 col-xs-4" src="images/logo.png" id="logo" style="width:82px;height:82px" />
         <h1 class="padding">Angular Book</h1>
-        <nav>
-            <a href="#" id="menu-icon"></a>
-              <form id="section" name="login" onsubmit="return(validate());">
-                <input class="textbox" type="text" name="username" id="username" placeholder="username" maxlength="8" required>
-	            <input class="textbox" type="password" name="password" id="password" placeholder="password"
-                       pattern=".{6,}" required title="6 characters minimum"/>
-                <input class="submit" type="submit" name="button" id="button" value="Submit" />
-            </form>
-            </nav>
-        </header>
-        <img src="images/featured.jpg" alt="Mountain View" style="width:1335px;height:615px"/>
-        <div id="footer">
-            <footer>
-                <div class="footer-text" id="footertext">Talent Improving exercise, OFS</div>
-            </footer>
+        <a href="#" id="menu-icon"></a>
+        <div class="login">
+            <ul>
+                <li>
+                    <a href='#' data-toggle="modal" data-target="#smallModal">
+                        <img src="images/signout_icon.png" />
+                    </a>
+                </li>
+            </ul>
         </div>
-	</body>
+    </header>
+
+    <img class="bgImage" src="images/featured.jpg" alt="Mountain View" />
+    <div id="footer">
+        <footer class="col-xs-12">
+            <div class="footer-text" id="footertext">Talent Improving exercise, OFS</div>
+        </footer>
+    </div>
+
+    <div id='smallModal' class='modal fade' my-modal ng-controller="LoginDialogController" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">x</button>
+                    <h3>Login</h3>
+                </div>
+                <div class="modal-body">
+                    <form name="login_form">
+                        <div class="form-group" ng-class="{'has-error':login_form.username.$invalid && !login_form.username.$pristine }">
+                            <input autocomplete="off" type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8" placeholder="username" required>
+                            <p ng-show="login_form.username.$error.minlength" class="help-block">Username is too short.</p>
+                            <p ng-show="login_form.username.$error.maxlength" class="help-block">Username is too long.</p>
+
+                        </div>
+                        <div class="form-group" ng-class="{'has-error':login_form.password.$invalid && !login_form.password.$pristine }">
+
+                            <input type="password" name="password" class="form-control" ng-model="user.password" placeholder="password" ng-maxlength="6" placeholder="Password" required>
+                            <p ng-show="login_form.password.$error.maxlength" class="help-block">Password contains 6 character</p>
+                        </div>
+                        <p>
+                            <button ng-disabled="login_form.username.$error.required || login_form.password.$error.maxlength || login_form.username.$error.minlength || login_form.username.$error.maxlength"
+                                    type="submit" class="btn btn-primary" ng-click="ok()">Sign in</button>
+                        </p>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
 </html>

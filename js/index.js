@@ -1,24 +1,17 @@
-function validate() {
-    if(document.login.username.value === '') {
-        alert( "Please provide your name!" );
-        document.myForm.Name.focus() ;
-        return false;
-    }
-    if(document.login.password.value === '') {
-        alert( "Please enter your password!" );
-        document.myForm.Name.focus() ;
-        return false;
-    }
-    if(document.login.password.value.length < 6 ) {
-        alert("Error: Password must contain at least six characters!");
-        document.myForm.Name.focus() ;
-        return false;
-    }
-    if(document.login.username.value == 'admin' && document.login.password.value == "adminn" && document.login.password.value.length <= 6) {
-        window.location.href = "feed.html";
-        return false;
-    } else {
-        alert( "Please enter your valid username and password.." );
-    }
+var indexApp = angular.module('indexApp',[]);
+indexApp.directive('myModal', function() {
+    return {
+     restrict: 'A',
+     link: function(scope, element, attr) {
+       scope.dismiss = function() {
 
-}
+       };
+     }
+   }
+});
+indexApp.controller("LoginDialogController",function($scope) {
+    $scope.ok = function(){
+      window.location="feed.html";
+    };
+});
+
