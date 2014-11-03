@@ -1,70 +1,61 @@
 <!DOCTYPE html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<html lang="en" ng-app="indexApp">
+<html lang="en">
 
 <head>
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="js/index.js" type="application/javascript"></script>
-    <script src="/bower_components/bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/bower_components/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/css/book.css">
-    <script data-require="jquery@1.9.0" data-semver="1.9.0" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
-    <link data-require="bootstrap@3.0.0" data-semver="3.0.0" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
-    <script data-require="bootstrap@3.0.0" data-semver="3.0.0" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/book.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-ui-bootstrap/0.5pre/assets/css/bootstrap.min.css" />
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 
-<body>
-
-    <header>
-        <img class="col-lg-2 col-sm-3 col-xs-4" src="images/logo.png" id="logo" style="width:82px;height:82px" />
-        <h1 class="padding">Angular Book</h1>
-        <a href="#" id="menu-icon"></a>
-        <div class="login">
-            <ul>
-                <li>
-                    <a href='#' data-toggle="modal" data-target="#smallModal">
-                        <img src="images/signout_icon.png" />
-                    </a>
-                </li>
-            </ul>
+<body ng-app="indexApp">
+    <div ng-controller="ModalDemoCtrl">
+        <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 id="txtColor">Login</h3>
         </div>
-    </header>
-
-    <img class="bgImage" src="images/featured.jpg" alt="Mountain View" />
-    <div id="footer">
-        <footer class="col-xs-12">
-            <div class="footer-text" id="footertext">Talent Improving exercise, OFS</div>
-        </footer>
-    </div>
-
-    <div id='smallModal' class='modal fade' my-modal ng-controller="LoginDialogController" tabindex="-1" role="dialog" aria-labelledby="smallModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">x</button>
-                    <h3>Login</h3>
-                </div>
-                <div class="modal-body">
-                    <form name="login_form">
+        <div class="modal-body">
+            <form name="login_form">
                         <div class="form-group" ng-class="{'has-error':login_form.username.$invalid && !login_form.username.$pristine }">
-                            <input autocomplete="off" type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8" placeholder="username" required>
+                            <input autocomplete="off" type="text" name="username" class="form-control" ng-model="user.username" ng-                                         minlength="3" ng-maxlength="8" placeholder="username" required>
                             <p ng-show="login_form.username.$error.minlength" class="help-block">Username is too short.</p>
                             <p ng-show="login_form.username.$error.maxlength" class="help-block">Username is too long.</p>
 
                         </div>
                         <div class="form-group" ng-class="{'has-error':login_form.password.$invalid && !login_form.password.$pristine }">
-
-                            <input type="password" name="password" class="form-control" ng-model="user.password" placeholder="password" ng-maxlength="6" placeholder="Password" required>
-                            <p ng-show="login_form.password.$error.maxlength" class="help-block">Password contains 6 character</p>
+                            <input type="password" name="password" class="form-control" ng-model="user.password" placeholder="password"                                     ng-maxlength="6" placeholder="Password" required>
+                            <p ng-show="login_form.password.$error.maxlength" class="help-block">Password cannot be longer than 6 characters</p>
                         </div>
-                        <p>
-                            <button ng-disabled="login_form.username.$error.required || login_form.password.$error.maxlength || login_form.username.$error.minlength || login_form.username.$error.maxlength"
-                                    type="submit" class="btn btn-primary" ng-click="ok()">Sign in</button>
-                        </p>
-                </div>
                 </form>
-            </div>
         </div>
+        <div class="modal-footer">
+            <button ng-disabled="login_form.username.$error.required || login_form.password.$error.maxlength ||                                              login_form.username.$error.minlength || login_form.username.$error.maxlength"
+                                    type="submit" class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+        </script>
+        <header>
+            <img class="col-lg-2 col-sm-3 col-xs-4" src="images/logo.png" id="logo" style="width:100px;height:82px" />
+            <h1 class="titles">ngular Book</h1>
+            <div class="login">
+                <ul>
+                    <li>
+                        <a href='#'>
+                            <img src="images/signout_icon.png" ng-click="open('sm')" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+    </div>
+    <img class="bgImage" src="images/featured.jpg" alt="" />
+    <div id="footer">
+        <footer class="col-xs-12">
+            <div class="footer-text" id="footertext">Talent Improving exercise, OFS</div>
+        </footer>
     </div>
     </div>
 </body>

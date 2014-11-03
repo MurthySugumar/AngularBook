@@ -1,27 +1,41 @@
-<div id="previewImage">
-    <img id="thumbnil" src="images/preview.png" style="width:152px;height:229px" />
+<div id="section" ng-controller="profileController">
+    <div id="previewImage" class="col-sm-4">
+        <div class="fileinput fileinput-new" data-provides="fileinput">
+            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                <img src="images/preview.png" alt="...">
+            </div>
+            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+            <div>
+                <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span>
+                    <span class="fileinput-exists">Change</span>
+                <input type="file" name="...">
+                </span>
+                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-2">
+                <form role="form" name="userForm" ng-submit="submitForm()" novalidate>
+                    <div class="form-group" ng-class="{'has-error': userForm.name.$invalid}">
+                        <input name="name" type="text" placeholder="Name" class="form-control" ng-model="user.name" required></input>
+                        <span ng-show="userForm.name.$error.required" class="help-block">You name is required.</span>
+                    </div>
+                    <input name="age" type="number" placeholder="Age" class="form-control"></input>
+                    </br>
+                    <input name="phoneno" type="phone" placeholder="PhoneNo" class="form-control"></input>
+                    </br>
+                    <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                        <input type="email" name="email" class="form-control" ng-model="user.email" placeholder="Email" required/>
+                        <p ng-show="userForm.email.$invalid && userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                    </div>
+                    </br>
+                    <textarea id="description" rows="4" cols="30" class="form-control"></textarea>
+                    </br>
+                    <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-<div id="container">
-    <form id="profileform">
-        <input id="name" type="name" placeholder="Name" required></input>
-        </br>
-        </br>
-        <input id="age" type="number" placeholder="Age"></input>
-        </br>
-        </br>
-        <input id="phoneno" type="phone" placeholder="PhoneNo"></input>
-        </br>
-        </br>
-        <input id="email" type="email" placeholder="Email" required></input>
-        </br>
-        </br>
-        <textarea id="description" rows="4" cols="30"></textarea>
-        </br>
-        </br>
-        <input id="imagefile" type="file" accept="image/*" onchange="showMyImage(this)" name="file" required>
-        </br>
-        </br>
-        <input class="submit" type="submit" name="button" id="button" value="Save" onclick='storeProfile()' />
-    </form>
-</div>
-

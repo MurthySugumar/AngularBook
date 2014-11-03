@@ -1,21 +1,21 @@
-<div id="section" ng-controller="feedCtrl">
+<div id="section" ng-controller="feedController">
     <div class="input-group form-group-lg">
-        <input id="formGroupInputLarge" class="form-control" type="text" value="" placeholder="Text feed or URL feed" ng-model='newTask' />
+        <input  class="form-control focus" type="text" value="" placeholder="Text feed or URL feed" ng-model='newTask' />
         <span class="input-group-btn">
         <button type="submit" class="btn btn-danger btn-lg" ng-click='addNew()'>Submit</button>
             </span>
     </div>
-    <!-- Todos list -->
     <div class="listofpost">
-  <ul id="feedList">
-        <li ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem" style="margin-bottom: 10px;">
-            <div id="text">
-          <img src="images/profile_default.jpg" id="userImage" align="center"/>
-          <label id="feedValues">{{taskItem.description}}</label>
-          <img src="images/delete.png" id="closeBtn" ng-model="taskItem.complete" ng-click="deleteTask($index)"/>
+        <ul id="feedList">
+            <li ng-repeat="taskItem in taskItem track by $index" ng-model="taskItem" style="margin-bottom: 10px;">
+                <div id="{{taskItem.validUrl}}" class="form-control" ng-click="redirectUrl(taskItem.description)">
+                    <img src="images/profile_default.jpg" id="userImage" align="center"/>
+                    <label id="feedValues">{{taskItem.description}}</label>
+                    <img src="images/delete.png" id="closeBtn" ng-model="taskItem.complete"
+                         ng-click="deleteTask($index)" style="width:32px;height:32px"/>
+                    <label id="feedTime">{{taskItem.date | date:'medium'}}</label>
                 </div>
-      </li>
-
-      </ul>
-</div>
+            </li>
+        </ul>
+    </div>
 </div>

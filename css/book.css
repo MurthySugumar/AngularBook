@@ -1,6 +1,6 @@
 h1 {
     text-align: left;
-    float:left;
+    float: left;
     padding-left: 0px;
     color: #fff;
     font-family: FontAwesome;
@@ -14,9 +14,9 @@ h1 {
     background-color: #b0e0e6;
 }
 #section {
-    width:550px;
-    float:right;
-    padding-top:27px;
+    width: 550px;
+    float: right;
+    padding-top: 27px;
     padding-left: 150px;
 }
 .submit {
@@ -28,7 +28,6 @@ h1 {
     color: #fff;
     cursor: pointer;
 }
-
 .textbox {
     background: white;
     border: 1px solid #DDD;
@@ -38,15 +37,13 @@ h1 {
     outline: none;
     padding: 5px 20px;
 }
-
-#logo{
+#logo {
     margin-left: 20px;
     float: left;
     width: 200px;
     height: 75px;
     background: url(images/logo.png) no-repeat center;
     display: block;
-
 }
 header {
     background: #2c3e50;
@@ -58,56 +55,56 @@ header {
     border-bottom: 4px solid #fff;
     z-index: 100;
 }
- #menu-icon {
-    display:inline-block;
+#menu-icon {
+    display: inline-block;
 }
 footer.footer-below {
     padding: 25px 0;
     background-color: #233140;
 }
 .footer-text {
-    color:#fff;
+    color: #fff;
     font-size: 120%;
     font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
     text-align: center;
 }
-.submit:hover{
+.submit:hover {
     background: #fff;
-    color:#18bc9c;
+    color: #18bc9c;
 }
 #footer {
     background-color: #233140;
-    color:white;
-    clear:both;
-    text-align:center;
+    color: white;
+    clear: both;
+    text-align: center;
     padding: 25px 0;
 }
 .bgImage {
-    height:100%;
-    width:100%;
-    background-size:cover;
-    background-position:center center;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
 }
-html, body {
-    height:100%;
-    width:100%;
-    position:relative;
-    margin:0;
-    padding:0;
+html,
+body {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
 }
-
 .modal-dialog {
-      width: 100%;
-      height: 100%;
-      padding: 0;
-      margin:0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
 }
 .modal-content {
-      border-radius: 0;
-      color:black;
-      overflow:auto;
+    border-radius: 0;
+    color: black;
+    overflow: auto;
 }
 .login {
     text-align: right;
@@ -117,4 +114,16 @@ html, body {
 }
 ul {
     list-style-type: none;
+}
+.titles {
+    margin-top: 18px;
+    margin-left: -27px;
+    font-size: 280%;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    color: #fff;
+}
+#txtColor {
+    color: #000;
 }

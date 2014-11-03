@@ -91,7 +91,7 @@ li.divider {
     display: block;
 }
 #container {
-    padding-top: 150px;
+    padding-top: 30px;
     margin: 0 auto;
     width: 250px;
 }
@@ -103,7 +103,7 @@ textarea {
 input,
 textarea {
     font: 1em sans-serif;
-    width: 300px;
+    width: 100%;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     box-shadow: 0 0 27px rgb(204, 204, 204) inset;
@@ -118,16 +118,15 @@ textarea {
 }
 #previewImage {
     float: right;
-    padding-top: 150px;
-    padding-right: 150px;
+    padding-top: 30px;
 }
 #text {
-    width: 800px;
+    width: 100%;
     height: auto;
     background-color: #233140;
 }
 #url {
-    width: 800px;
+    width: 100%;
     height: auto;
     background-color: #18bc9c;
 }
@@ -166,7 +165,6 @@ textarea {
     padding-left: 10px;
 }
 .listofpost {
-    padding-left: 110px;
     padding-top: 50px;
 }
 
@@ -308,12 +306,6 @@ body {
 }
 .clearfix {
     clear: both;
-}
-.container {
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    background-color: #fb887c;
 }
 h1 {
     margin: 40px 0;
@@ -533,5 +525,8 @@ body {
   color: #16a085;
 }
 #txtColor {
+    color: #000;
+}
+.popover{
     color: #000;
 }
