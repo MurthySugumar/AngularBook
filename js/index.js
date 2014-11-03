@@ -14,12 +14,12 @@ indexApp.controller("LoginDialogController", function ($scope) {
         window.location = "feed.html";
     };
 });
-indexApp.controller('ModalDemoCtrl', function ($scope, $modal, $log) {
+indexApp.controller('homeModalCtrl', function ($scope, $modal, $log) {
 
     $scope.open = function (size) {
 
         var modalInstance = $modal.open({
-            templateUrl: 'myModalContent.html',
+            templateUrl: 'homeModal.html',
             controller: 'ModalInstanceCtrl',
             size: size,
             resolve: {
@@ -36,7 +36,7 @@ indexApp.controller('ModalDemoCtrl', function ($scope, $modal, $log) {
 indexApp.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
 
     $scope.ok = function () {
-        window.location = "feed.html";
+        window.location = "main.html";
     };
 
     $scope.cancel = function () {
